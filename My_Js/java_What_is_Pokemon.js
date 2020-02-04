@@ -56,19 +56,19 @@ for (let i = 0; i < 3; i++) {
 
 // .remove()
 
-let Docty = 0;
+let Docty = 1;
 
 function Sentvalue() {
-    if(Docty < 4){
+    if(Docty < 2){
     let x = document.getElementById("mytext").value;
-    // document.getElementById("Value_Anserw").innerHTML = x;
-    CheckAnswer(x);
+    document.getElementById("You_Answer").innerHTML = 'Last Answer = ' + x;
     
+    CheckAnswer(x);
     }else{
         document.getElementById("Value_Anserw").remove();
         document.getElementById("Value_Count").innerHTML = 'Game Over';
-        document.getElementById("button_1").style.visibility = "hidden"
-        document.getElementById("Reset_Button").style.visibility = "visible"
+        document.getElementById("button_1").style.visibility = "hidden";
+        document.getElementById("Reset_Button").style.visibility = "visible";
         alert("Game Over");
         // ถ้าอยากที่จะ รีหน้าเว็บกดปุ้มตกลงของกล่องข้อความที่แจ้งเตือนเข้ามา 
         // confirm("Game Over");
@@ -116,6 +116,7 @@ function CheckAnswer_Value(n1, n2, n3, s, x) {
             document.getElementById("button_1").style.visibility = "hidden"
             document.getElementById("Value_Count").remove();
             document.getElementById("Reset_Button").style.visibility = "visible"
+            document.getElementById("You_Answer").style.visibility = "hidden";
 
             
         } else if (d === w && d === n2) {
@@ -124,6 +125,7 @@ function CheckAnswer_Value(n1, n2, n3, s, x) {
             document.getElementById("button_1").style.visibility = "hidden"
             document.getElementById("Value_Count").remove()
             document.getElementById("Reset_Button").style.visibility = "visible"
+            document.getElementById("You_Answer").style.visibility = "hidden";
             
         } else if (d === w && d === n3) {
             console.log(n3 + ' ' + 'n3')
@@ -131,14 +133,15 @@ function CheckAnswer_Value(n1, n2, n3, s, x) {
             document.getElementById("button_1").style.visibility = "hidden"
             document.getElementById("Value_Count").remove()
             document.getElementById("Reset_Button").style.visibility = "visible"
+            document.getElementById("You_Answer").style.visibility = "hidden";
             
         } else if(a >= 1 && a <= 3) {
             document.getElementById("Value_Anserw").innerText = 'False'
-            document.getElementById("Value_Count").innerHTML = 'Count' + ' ' + Docty;
+            document.getElementById("Value_Count").innerHTML = 'Number sent answer' + ' ' + Docty;
             Docty ++;
         }else{
             document.getElementById("Value_Anserw").innerText = 'False'
-            document.getElementById("Value_Count").innerHTML = 'Count' + ' ' + Docty;
+            document.getElementById("Value_Count").innerHTML = 'Number sent answer' + ' ' + Docty;
             alert("Plase Your Enter 1 --- 3");
             Docty ++;
         }
